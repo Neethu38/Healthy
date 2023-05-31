@@ -1,2 +1,2 @@
 # Healthy
-bjnkikjk
+This is a basic java program for making the lives of elderly people easy. As elderly people tend to forget doctors details and the medicines they need to take ,this program helps them to get the right information required to take care of their health. They also get doctor's phone number and their address if needed. And also the program features  the BMI calculation and the no of litres of water that needed to be taken in the particular day. The program also has timer facility that shows message at regular intervals for doing exercise and taking medicines.
