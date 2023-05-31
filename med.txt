@@ -1,4 +1,23 @@
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
+ 
+class Helper extends TimerTask
+{
+    public static int i = 0;
+    int j=0;
+    public void run()
+    {i++;
+    j++;
+    if(i==1000000)
+        System.out.println("Time for Exercise");
+        if(j=10000000)
+        {
+        System.out.println("Time to take medicines");
+        j=0;
+    }
+}
+}
 
 class HealthCare {
     private String Phone_number[3];
@@ -22,15 +41,15 @@ class HealthCare {
         this.address{"","",""};
     }
 
-    public void setMedication(String med_list_morning) {
+    public void setMedication1(String med_list_morning) {
         this.med_list_morning = med_list_morning;
     }
 
-     public void setMedication(String med_list_noon) {
+     public void setMedication2(String med_list_noon) {
         this.med_list_noon = med_list_noon;
     }
 
-     public void setMedication(String med_list_night) {
+     public void setMedication3(String med_list_night) {
         this.med_list_night = med_list_night;
     }
 
@@ -38,55 +57,36 @@ class HealthCare {
         this.BMI = weight/(height*height);
     }
 
-    public void RemainingLitres(int litres_of_water_drunk
-) {
-        this.bloodPressure = bloodPressure;
+    public void RemainingLitres(int litres_of_water_drunk)
+ {
+        this.no_of_litresWater = 2.5-litres_of_water_drunk;
     }
 
-    public void setHeartRate(int heartRate) {
-        this.heartRate = heartRate;
-    }
-
+   
     public void displayMenu() {
-        System.out.println("Elderly Health Assistant");
+        System.out.println("Health is Wealth");
         System.out.println("-------------------------");
         System.out.println("1. Set Medication");
-        System.out.println("2. Set Exercise Time");
-        System.out.println("3. Record Vital Signs");
-        System.out.println("4. Exit");
+        System.out.println("2. Set Doctor Details");
+        System.out.println("3. See BMI");
+        System.out.println("4. See no. of litres of water to be taken");
+        System.out.println("5. Exit");
     }
 
-    public void takeMedication() {
+    public void takeMedicine() {
         System.out.println("Reminder: It's time to take your medication - " + medication);
     }
 
-    public void remindExercise() {
-        System.out.println("Reminder: It's time for exercise. Please spend at least " + exerciseTime + " minutes on physical activity.");
+    public void Exercise() {
+        System.out.println("Reminder: It's time for exercise.");
     }
 
-    public void recordVitalSigns() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Record Vital Signs");
-        System.out.println("------------------");
-        System.out.print("Blood Pressure (mmHg): ");
-        bloodPressure = scanner.nextInt();
-        System.out.print("Heart Rate (bpm): ");
-        heartRate = scanner.nextInt();
-
-        System.out.println("Vital signs recorded successfully!");
-    }
-
-    public void displayVitalSigns() {
-        System.out.println("Vital Signs");
-        System.out.println("-----------");
-        System.out.println("Blood Pressure: " + bloodPressure + " mmHg");
-        System.out.println("Heart Rate: " + heartRate + " bpm");
-    }
+   
+   
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ElderlyHealthAssistant assistant = new ElderlyHealthAssistant();
+        HealthCare assistant = new HealthCare();
 
         int choice = 0;
         do {
