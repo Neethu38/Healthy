@@ -1,0 +1,127 @@
+import java.util.Scanner;
+
+class HealthCare {
+    private String Phone_number[3];
+    private int BMI;
+    private int no_of_litresWater;
+    private String med_list_morning;
+    private String med_list_noon;
+    prvate String med_list_night;
+    private String Address [3];
+    
+
+   
+
+    public HealthCare() {
+        this.Phone_number = {"","",""};
+        this.BMI = 0;
+        this.no_of_litresWater = 0;
+        this.med_list_morning = "";
+        this.med_list_noon="";
+        this.med_list_night="";
+        this.address{"","",""};
+    }
+
+    public void setMedication(String med_list_morning) {
+        this.med_list_morning = med_list_morning;
+    }
+
+     public void setMedication(String med_list_noon) {
+        this.med_list_noon = med_list_noon;
+    }
+
+     public void setMedication(String med_list_night) {
+        this.med_list_night = med_list_night;
+    }
+
+    public void Calc_BMI(int weight, int height) {
+        this.BMI = weight/(height*height);
+    }
+
+    public void RemainingLitres(int litres_of_water_drunk
+) {
+        this.bloodPressure = bloodPressure;
+    }
+
+    public void setHeartRate(int heartRate) {
+        this.heartRate = heartRate;
+    }
+
+    public void displayMenu() {
+        System.out.println("Elderly Health Assistant");
+        System.out.println("-------------------------");
+        System.out.println("1. Set Medication");
+        System.out.println("2. Set Exercise Time");
+        System.out.println("3. Record Vital Signs");
+        System.out.println("4. Exit");
+    }
+
+    public void takeMedication() {
+        System.out.println("Reminder: It's time to take your medication - " + medication);
+    }
+
+    public void remindExercise() {
+        System.out.println("Reminder: It's time for exercise. Please spend at least " + exerciseTime + " minutes on physical activity.");
+    }
+
+    public void recordVitalSigns() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Record Vital Signs");
+        System.out.println("------------------");
+        System.out.print("Blood Pressure (mmHg): ");
+        bloodPressure = scanner.nextInt();
+        System.out.print("Heart Rate (bpm): ");
+        heartRate = scanner.nextInt();
+
+        System.out.println("Vital signs recorded successfully!");
+    }
+
+    public void displayVitalSigns() {
+        System.out.println("Vital Signs");
+        System.out.println("-----------");
+        System.out.println("Blood Pressure: " + bloodPressure + " mmHg");
+        System.out.println("Heart Rate: " + heartRate + " bpm");
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ElderlyHealthAssistant assistant = new ElderlyHealthAssistant();
+
+        int choice = 0;
+        do {
+            assistant.displayMenu();
+            System.out.print("Enter your choice (1-4): ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter medication name: ");
+                    scanner.nextLine(); // Clear the buffer
+                    String medication = scanner.nextLine();
+                    assistant.setMedication(medication);
+                    break;
+                case 2:
+                    System.out.print("Enter exercise time in minutes: ");
+                    int exerciseTime = scanner.nextInt();
+                    assistant.setExerciseTime(exerciseTime);
+                    break;
+                case 3:
+                    assistant.recordVitalSigns();
+                    break;
+                case 4:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+                    break;
+            }
+
+            System.out.println();
+        } while (choice != 4);
+
+        assistant.takeMedication();
+        assistant.remindExercise();
+        assistant.displayVitalSigns();
+    }
+}
